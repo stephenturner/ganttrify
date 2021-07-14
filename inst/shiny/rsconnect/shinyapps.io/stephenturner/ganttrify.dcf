@@ -5,7 +5,7 @@ account: stephenturner
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4386840
-bundleId: 4820496
+bundleId: 4820531
 url: https://stephenturner.shinyapps.io/ganttrify/
-when: 1626303789.54063
-lastSyncTime: 1626303789.54064
+when: 1626305020.14774
+lastSyncTime: 1626305020.14775
