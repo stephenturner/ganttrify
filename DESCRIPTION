@@ -24,8 +24,7 @@ Imports:
     tidyr,
     shiny,
     DT
-URL: https://github.com/giocomai/ganttrify
-BugReports: https://github.com/giocomai/ganttrify/issues
+URL: https://github.com/stephenturner/ganttrify
 Language: en-US
 Suggests: 
     googlesheets4,
