@@ -1,28 +1,28 @@
 ui <- fluidPage(
   tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
-  tags$link(rel = "stylesheet", type = "text/css", href = "css/satisfy.css"),
+  tags$link(rel = "stylesheet", type = "text/css", href = "css/Roboto.css"),
   tags$style("body {font-family: 'Roboto', sans-serif;}"),
-  tags$style("h2 {font-family: 'Satisfy', sans-serif;
+  tags$style("h2 {font-family: 'Roboto', sans-serif;
   font-size: 50px;
   text-align: center;
-  color: #6f2c91;
+  color: #0d6232;
   text-shadow: 3px 3px 3px #grey; 
   text-decoration: none;}"),
   tags$style("h2 a {text-align:center;
   font-size: 50px;
   text-align: center;
-  color: #6f2c91;
+  color: #0d6232;
   text-shadow: 3px 3px 3px #grey;}"),
   tags$style("h2 a:hover {text-align:center;
   font-size: 50px;
   text-align: center;
   color: #a6ce39;
   text-shadow: 3px 3px 3px #grey;}"),
-  tags$style("h3 a {font-family: 'Satisfy', sans-serif; fonts-size: 30px; text-align: center; color: #6f2c91; text-shadow: 3px 3px 3px #grey;"),
-  tags$style("h3 a:hover {font-family: 'Satisfy', sans-serif; fonts-size: 30px; text-align: center; color: #a6ce39; text-shadow: 3px 3px 3px #grey;"),
-  tags$style("h3 {font-family: 'Satisfy', sans-serif; fonts-size: 30px; text-align: center; color: #a6ce39; text-shadow: 3px 3px 3px #grey;"),
+  tags$style("h3 a {font-family: 'Roboto', sans-serif; fonts-size: 30px; text-align: center; color: #0d6232; text-shadow: 3px 3px 3px #grey;"),
+  tags$style("h3 a:hover {font-family: 'Roboto', sans-serif; fonts-size: 30px; text-align: center; color: #a6ce39; text-shadow: 3px 3px 3px #grey;"),
+  tags$style("h3 {font-family: 'Roboto', sans-serif; fonts-size: 30px; text-align: center; color: #a6ce39; text-shadow: 3px 3px 3px #grey;"),
   tags$style("h4 {font-family: 'Roboto', sans-serif; font-weight: bold; text-shadow: 3px 3px 3px #grey;text-decoration: underline; text-align: center;"),
-  tags$style("h4 a {font-family: 'Roboto', sans-serif; font-weight: bold; text-shadow: 3px 3px 3px #grey;text-decoration: underline; text-align: center; color: #6f2c91;"),
+  tags$style("h4 a {font-family: 'Roboto', sans-serif; font-weight: bold; text-shadow: 3px 3px 3px #grey;text-decoration: underline; text-align: center; color: #0d6232;"),
   tags$style("h4 a:hover {font-family: 'Roboto', sans-serif; font-weight: bold; text-shadow: 3px 3px 3px #grey;text-decoration: underline; text-align: center; color: #a6ce39;"),
   tags$style(".col-sm-8 {text-align: center;}"),
   tags$style(".col-sm-8 table {text-align: center;}"),
@@ -30,8 +30,8 @@ ui <- fluidPage(
   tags$style("#current_spots_table {width:95%;text-align: center;}"),
   
   
-  shiny::titlePanel(title = tags$a("Ganttrify!", href='https://github.com/giocomai/ganttrify/'),
-                    windowTitle = "Ganttrify - A tool by EDJNet"),
+  shiny::titlePanel(title = tags$a("Ganttrify!", href='https://github.com/stephenturner/ganttrify#readme'),
+                    windowTitle = "Ganttrify"),
 
   sidebarLayout(
     sidebarPanel(
@@ -76,11 +76,8 @@ ui <- fluidPage(
       shiny::checkboxInput(inputId = "custom_palette_check", label = "Custom colour palette?", value = FALSE),
       conditionalPanel(
         condition = "input.custom_palette_check == true",
-        shiny::textInput(inputId = "custom_palette_text", label = "Custom hex values", value = "#a6ce39,#6f2c91,#a6ce39"),
-        shiny::helpText("Insert comma-separated hex values, with no spaces."))),
-      shiny::HTML("<hr />"),
-      shiny::h3(tags$a("A tool by EDJNet", href='https://www.europeandatajournalism.eu/')),
-      shiny::h3(tags$a(tags$img(src = "img/edjnet_logo_full.svg"), href='https://www.europeandatajournalism.eu/'))
+        shiny::textInput(inputId = "custom_palette_text", label = "Custom hex values", value = "#a6ce39,#0d6232,#a6ce39"),
+        shiny::helpText("Insert comma-separated hex values, with no spaces.")))
     ),
     mainPanel(
       shiny::actionButton("go", "Update chart"),
@@ -109,8 +106,7 @@ ui <- fluidPage(
       shiny::tableOutput(outputId = "current_project_table"),
       shiny::h4("Spot occurrences"), 
       shiny::tableOutput(outputId = "current_spots_table"),
-      shiny::h4(tags$a("Source code and documentation available on GitHub", href='https://github.com/giocomai/ganttrify')),
-      shiny::h4(tags$a("Developed by Giorgio Comai", href='https://giorgiocomai.eu/')),
+      shiny::h4(tags$a("Documentation", href='https://github.com/stephenturner/ganttrify#readme')),
 
     )
   )
