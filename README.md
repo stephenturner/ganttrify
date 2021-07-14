@@ -3,91 +3,20 @@
 
 # ganttrify
 
-<!-- badges: start -->
-
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-<!-- badges: end -->
-
-`ganttrify` facilitates the creation of nice-looking Gantt charts,
-commonly used in project proposals and project management.
-
-If you just want to check this out in an interactive web interface,
-[click here and
-enjoy](https://apps.europeandatajournalism.eu/app/ganttrify). Some more
-[context in this blog
-post](https://medium.com/european-data-journalism-network/beautiful-gantt-charts-with-ggplot2-80ccd8c2c788).
-
-Read on for more details and examples.
-
-## Motivation
-
-It is possible to find online documented attempts at facilitating the
-creation of Gantt charts from R. Some of them
-(e.g. [this](https://www.molecularecologist.com/2019/01/simple-gantt-charts-in-r-with-ggplot2-and-the-tidyverse/)
-and [this](https://davetang.org/muse/2017/02/03/gantt-chart-using-r/))
-use ‘ggplot2’, but I feel they do not look very nice. The same goes for
-the answers I found in the [relevant Stackoverflow
-question](https://stackoverflow.com/questions/3550341/gantt-charts-with-r).
-
-Even
-[Plotly](https://moderndata.plot.ly/gantt-charts-in-r-using-plotly/)
-enables the creation of Gantt charts in R, but again, I don’t like the
-end result.
-
-I did find a [solution that was rather visually
-satisfying](https://insileco.github.io/2017/09/20/gantt-charts-in-r/),
-but it was in base R, and all the cool kids nowadays know that base
-plotting in R exists only [for compatibility with
-S](https://twitter.com/whydoesr): not an option\! (Hey, I’m joking,
-don’t @ me\!)
-
-Given what is evidently my posh taste for Gantt charts, I had no other
-option than making this package with a pretentious, gentrified name,
-instead of the obvious “ganttr”.
-
-Please welcome `ganttrify`.
-
-## Disclaimer
-
-More seriously, this has been a quick attempt at making decent-looking
-Gantt charts.
-
-And yes, I will enable all the customisations you like, but first I
-actually need to submit this project.
-
-\[Thanks to all who contributed suggestions via issues and pull
-request\!\]
-
-## Features
-
-Take an adequately formatted spreadsheet and turn it into a Gantt chart
-made with ggplot2.
-
-## Installation
-
-You can install the development version from
-[GitHub](https://github.com/) with:
-
-``` r
-# install.packages("remotes")
-remotes::install_github("giocomai/ganttrify")
-```
-
 ## Example
 
 Here is an example project:
 
 | wp                         | activity                    | start\_date | end\_date |
-| :------------------------- | :-------------------------- | ----------: | --------: |
+|:---------------------------|:----------------------------|------------:|----------:|
 | WP1 - Whatever admin       | 1.1. That admin activity    |           1 |         6 |
 | WP1 - Whatever admin       | 1.2. Another admin activity |           3 |         6 |
 | WP1 - Whatever admin       | 1.3. Fancy admin activity   |           4 |         7 |
 | WP2 - Whatever actual work | 2.1. Actual stuff           |           5 |        10 |
-| WP2 - Whatever actual work | 2.2. Actual R\&D stuff      |           6 |        12 |
+| WP2 - Whatever actual work | 2.2. Actual R&D stuff       |           6 |        12 |
 | WP2 - Whatever actual work | 2.3. Really real research   |           9 |        12 |
-| WP2 - Whatever actual work | 2.4. Ethics\!               |           3 |         5 |
-| WP2 - Whatever actual work | 2.4. Ethics\!               |           8 |         9 |
+| WP2 - Whatever actual work | 2.4. Ethics!                |           3 |         5 |
+| WP2 - Whatever actual work | 2.4. Ethics!                |           8 |         9 |
 | WP3 - Dissemination        | 3.1. Disseminate near       |           6 |         9 |
 | WP3 - Dissemination        | 3.1. Disseminate near       |          12 |        12 |
 | WP3 - Dissemination        | 3.2. Disseminate far        |           8 |        12 |
@@ -119,12 +48,12 @@ Just put them in a table with these column names, and you will be
 served.
 
 | activity                   | spot\_type | spot\_date |
-| :------------------------- | :--------- | ---------: |
+|:---------------------------|:-----------|-----------:|
 | 1.1. That admin activity   | D          |          5 |
 | 1.3. Fancy admin activity  | E          |          7 |
-| 2.2. Actual R\&D stuff     | O          |          7 |
-| 2.2. Actual R\&D stuff     | O          |          9 |
-| 2.2. Actual R\&D stuff     | O          |         11 |
+| 2.2. Actual R&D stuff      | O          |          7 |
+| 2.2. Actual R&D stuff      | O          |          9 |
+| 2.2. Actual R&D stuff      | O          |         11 |
 | WP2 - Whatever actual work | M          |          6 |
 
 ``` r
@@ -197,7 +126,6 @@ ganttrify(project = test_36,
 Does right-aligned text bother you
 
 ``` r
-
 ganttrify(project = ganttrify::test_project,
           spots = ganttrify::test_spots,
           project_start_date = "2021-04",
@@ -207,7 +135,6 @@ ganttrify(project = ganttrify::test_project,
 <img src="man/figures/README-gantt_left_aligned-1.png" width="100%" />
 
 ``` r
-
 ganttrify(project = ganttrify::test_project,
           spots = ganttrify::test_spots,
           project_start_date = "2021-04",
@@ -242,17 +169,6 @@ fancy *ganttrified* chart.
 shiny_ganttrify()
 ```
 
-And there you go\!
-
-![A screenshot of the Shiny
-app](man/figures/shiny_ganttrify_screenshot.png)
-
-You can check it online with no further ado at the following link:
-
-<https://ganttrify.europeandatajournalism.eu/>
-
-(N.B.: not all features are exposed in the shiny app)
-
 ### Shiny app on Docker
 
 Alright, you don’t know like R, but you know how Docker works?
@@ -278,15 +194,15 @@ knitr::kable(ganttrify::test_project_date_month)
 ```
 
 | wp                         | activity                    | start\_date | end\_date |
-| :------------------------- | :-------------------------- | :---------- | :-------- |
+|:---------------------------|:----------------------------|:------------|:----------|
 | WP1 - Whatever admin       | 1.1. That admin activity    | 2021-01     | 2021-06   |
 | WP1 - Whatever admin       | 1.2. Another admin activity | 2021-03     | 2021-06   |
 | WP1 - Whatever admin       | 1.3. Fancy admin activity   | 2021-04     | 2021-07   |
 | WP2 - Whatever actual work | 2.1. Actual stuff           | 2021-05     | 2021-10   |
-| WP2 - Whatever actual work | 2.2. Actual R\&D stuff      | 2021-06     | 2021-12   |
+| WP2 - Whatever actual work | 2.2. Actual R&D stuff       | 2021-06     | 2021-12   |
 | WP2 - Whatever actual work | 2.3. Really real research   | 2021-09     | 2021-12   |
-| WP2 - Whatever actual work | 2.4. Ethics\!               | 2021-03     | 2021-05   |
-| WP2 - Whatever actual work | 2.4. Ethics\!               | 2021-08     | 2021-09   |
+| WP2 - Whatever actual work | 2.4. Ethics!                | 2021-03     | 2021-05   |
+| WP2 - Whatever actual work | 2.4. Ethics!                | 2021-08     | 2021-09   |
 | WP3 - Dissemination        | 3.1. Disseminate near       | 2021-06     | 2021-09   |
 | WP3 - Dissemination        | 3.1. Disseminate near       | 2021-12     | 2021-12   |
 | WP3 - Dissemination        | 3.2. Disseminate far        | 2021-08     | 2021-12   |
@@ -300,7 +216,7 @@ ganttrify(project = ganttrify::test_project_date_month,
           font_family = "Roboto Condensed")
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
 As it turns out, someone wants more detail: they’d like to be able to
 input activities with an exact start and end date. I start to suspect
@@ -312,7 +228,7 @@ knitr::kable(ganttrify::test_project_date_day)
 ```
 
 | wp                 | activity           | start\_date | end\_date  |
-| :----------------- | :----------------- | :---------- | :--------- |
+|:-------------------|:-------------------|:------------|:-----------|
 | Data team          | Data collection    | 2020-09-01  | 2020-09-10 |
 | Data team          | Data processing    | 2020-09-08  | 2020-09-14 |
 | Data team          | Reporting          | 2020-09-14  | 2020-09-16 |
@@ -333,7 +249,7 @@ ganttrify(project = ganttrify::test_project_date_day,
           font_family = "Roboto Condensed")
 ```
 
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
 ## Troubleshooting
 
@@ -343,9 +259,9 @@ At this stage, the package has strong expectations about the input
 format, and does not provide meaningful error messages. If you see
 unexpected results, please consider that:
 
-  - no cell in the activity column must be empty
-  - an activity cannot be called the same as a wp
-  - activities in different wp should have different names (or at least
+-   no cell in the activity column must be empty
+-   an activity cannot be called the same as a wp
+-   activities in different wp should have different names (or at least
     add a space at the end or something so that they look different to
     the computer).
 
@@ -359,11 +275,11 @@ Condensed](https://fonts.google.com/specimen/Roboto+Condensed)* font - a
 free font that can be downloaded and installed on any desktop - as they
 make more efficient use of text space.
 
-On Fedora, you can install it with `sudo dnf install
-google-roboto-condensed-fonts`
+On Fedora, you can install it with
+`sudo dnf install google-roboto-condensed-fonts`
 
-On Debian, you can install it with `sudo apt-get install
-fonts-roboto-fontface`
+On Debian, you can install it with
+`sudo apt-get install fonts-roboto-fontface`
 
 After installation, you should make sure the font is available to R by
 installing the `extrafont` package, and running
